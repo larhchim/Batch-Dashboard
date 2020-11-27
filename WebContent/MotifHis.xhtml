@@ -1,0 +1,146 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:f="http://java.sun.com/jsf/core"
+     xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+          <script type="text/javascript">
+        
+        document.createElement('nav');
+        document.createElement('div');
+        document.createElement('a');
+        document.createElement('footer');
+        document.createElement('button');
+
+
+
+
+        
+        </script>
+
+ <STYLE type="text/css">
+        
+        .buttons input {
+    margin: 5px;
+    padding: 5px 5px 5px 20px; /* 20px makes room for your background image */
+    border: 1px solid #aaa;
+    height:50px;
+      font-size: 30px;
+    
+}
+
+.buttons .apply {
+    background: #eee url(path/to/apply.png) no-repeat 0 50%;
+} 
+        
+        
+
+        </STYLE>
+</h:head>
+
+	<h:body>
+		<h:form id="form">
+
+			<p:dataTable  value="#{motifHis.tableOfMotifs}" var="mtf" id="singleDT" selectionMode="single" selection="#{motifHis.selectedmotif}" rowKey="#{motifHis.rowkey}"
+			 paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {Exporters}"
+                 paginator="true" rows="10" style="margin-bottom:20px" >
+			
+			<f:facet name="header">
+           Details sur l'historique De l'ensemble des Motifs de rejets
+                               <h:graphicImage  
+   value = "./img/EAI.png" /> 
+           
+              </f:facet>
+			
+				<p:column style="width:60px" filterMatchMode="contains" filterBy="#{mtf.date_traitement}">
+					<f:facet name="header">Date </f:facet>
+				 <h:outputText value="#{mtf.date_traitement}"/>
+				</p:column>
+			  
+			
+			  
+			  
+				<p:column  style="width:100px" filterMatchMode="contains" filterBy="#{mtf.ref_ext}">
+				
+						<f:facet name="header" >Code</f:facet>
+						<h:outputText value="#{mtf.ref_ext}" />
+				 
+				</p:column>
+			  
+			  
+			  
+				<p:column style="width:100px" filterMatchMode="contains" filterBy="#{mtf.motif_rjet}">
+			 
+				   <f:facet name="header">Motif</f:facet>
+				   <h:outputText value="#{mtf.motif_rjet}" />
+				   
+				</p:column>
+			   
+			   
+			   
+				<p:column style="width:100px" filterMatchMode="contains" filterBy="#{mtf.type_ano}">
+					<f:facet name="header">Anomalie</f:facet>
+					<h:outputText value="#{mtf.type_ano}"/>
+				</p:column>
+				
+			   
+			   
+				<p:column style="width:100px" filterMatchMode="contains" filterBy="#{mtf.nat_maj}">
+					<f:facet name="header">Mise a jour</f:facet>
+					<h:outputText value="#{mtf.nat_maj}"/>
+				</p:column>
+			   
+			   
+			   
+				<p:column style="width:100px" filterMatchMode="contains" filterBy="#{mtf.cyc_vie}">
+					<f:facet name="header">Cycle de vie</f:facet>
+					<h:outputText value="#{mtf.cyc_vie}"/>
+				</p:column>
+			   
+			   
+			   
+				<p:column style="width:100px" filterMatchMode="contains" filterBy="#{mtf.typ_maj_icb}">
+					<f:facet name="header">Mise a jour ICB</f:facet>
+					<h:outputText value="#{mtf.typ_maj_icb}"/>
+				</p:column>
+			   
+			   
+			   
+				<p:column style="width:100px" filterMatchMode="contains" filterBy="#{mtf.typ_prd}">
+					<f:facet name="header">Produit</f:facet>
+					<h:outputText value="#{mtf.typ_prd}"/>
+				</p:column>
+			   
+		       <f:facet name="footer">
+			       
+			       <h:form>
+   
+   <div class="buttons">
+        <h:commandButton value="Déconnexion" action="#{loginController.logout}" styleClass="apply" />
+    </div>
+    
+    </h:form>
+                    </f:facet>
+			   
+			</p:dataTable>
+			
+		 <h:commandLink id="excel">
+       <img class="image" src="./img/excel.jpg" width="110px" height="70px"/>
+        <p:dataExporter type="xls" target="singleDT" fileName="Historique Motifs" postProcessor="#{motifHis.postProcessXLS}" />
+    </h:commandLink>
+ 
+ 
+ 
+ 	  <h:commandLink id="pdf">
+       <img class="image" src="./img/pdf.jpg" width="110px" height="100px"/>
+        <p:dataExporter type="pdf" target="singleDT" fileName="Historique Motifs" postProcessor="#{motifHis.preProcessPDF}" />
+    </h:commandLink>
+			
+
+    
+		</h:form>
+	</h:body>
+
+</html>

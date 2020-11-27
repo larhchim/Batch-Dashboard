@@ -1,0 +1,123 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:f="http://java.sun.com/jsf/core"
+     xmlns:p="http://primefaces.org/ui">
+ 
+<h:head>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+      <script type="text/javascript">
+        
+        document.createElement('nav');
+        document.createElement('div');
+        document.createElement('a');
+        document.createElement('footer');
+        document.createElement('button');
+
+
+
+
+        
+        </script>
+
+  <STYLE type="text/css">
+        
+        .buttons input {
+    margin: 5px;
+    padding: 5px 5px 5px 20px; /* 20px makes room for your background image */
+    border: 1px solid #aaa;
+    height:50px;
+      font-size: 30px;
+    
+}
+
+.buttons .apply {
+    background: #eee url(path/to/apply.png) no-repeat 0 50%;
+} 
+        
+        
+
+ 
+        </STYLE>
+</h:head>
+<h:body>
+    <h:form id="jsfexample">
+ 
+        <p:dataTable value="#{rejHis.rejection}" var="rj" id="mydata" selectionMode="single" selection="#{motif.selectedmotif}" rowKey="#{motif.rowkey}"
+			 paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {Exporters}"
+                 paginator="true" rows="10" style="margin-bottom:20px">
+                 
+                 <f:facet name="header">
+           Details sur l'historique De l'ensemble des Transactions rejetés
+                               <h:graphicImage  
+   value = "./img/EAI.png" /> 
+           
+              </f:facet>
+        
+            <p:column style="width:150px" filterMatchMode="contains"
+                filterBy="#{rj.libelle_ano}">
+ 
+                <f:facet name="header">Libelle Anomalie</f:facet>
+                <h:outputText value="#{rj.libelle_ano}" />
+ 
+            </p:column>
+            
+             <p:column style="width:150px" filterMatchMode="contains"
+                filterBy="#{rj.fonTie}">
+ 
+                <f:facet name="header">Type Traitement</f:facet>
+                <h:outputText value="#{rj.fonTie}" />
+ 
+            </p:column>
+            
+            
+             <p:column style="width:150px" filterMatchMode="contains"
+                filterBy="#{rj.dateFraicheur}">
+ 
+                <f:facet name="header">Date Traitement</f:facet>
+                <h:outputText value="#{rj.dateFraicheur}" />
+ 
+            </p:column>
+            
+             <p:column style="width:150px" filterMatchMode="contains"
+                filterBy="#{rj.ref_ext}">
+ 
+                <f:facet name="header">Code Reference</f:facet>
+                <h:outputText value="#{rj.ref_ext}" />
+ 
+            </p:column>
+            
+                   		  
+			          <f:facet name="footer">
+			       
+			       <h:form>
+   
+   <div class="buttons">
+        <h:commandButton value="Déconnexion" action="#{loginController.logout}" styleClass="apply" />
+    </div>
+    
+    </h:form>
+                    </f:facet>
+                    
+        </p:dataTable>
+        
+             <h:commandLink id="excel">
+       <img class="image" src="./img/excel.jpg" width="110px" height="70px"/>
+        <p:dataExporter type="xls" target="mydata" fileName="Historique Rejets" postProcessor="#{cat.postProcessXLS}" />
+    </h:commandLink>
+ 
+ 
+ 
+ 	  <h:commandLink id="pdf">
+       <img class="image" src="./img/pdf.jpg" width="110px" height="100px"/>
+        <p:dataExporter type="pdf" target="mydata" fileName="Historique Rejets" postProcessor="#{cat.preProcessPDF}" />
+    </h:commandLink>
+    
+    </h:form>
+</h:body>
+</html>
+
+
+
+
+

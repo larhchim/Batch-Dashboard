@@ -1,0 +1,221 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html>
+<html xmlns:f="http://xmlns.jcp.org/jsf/core" 
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+    <f:view>
+        <head>
+        
+              <script type="text/javascript">
+        
+        document.createElement('nav');
+        document.createElement('div');
+        document.createElement('a');
+        document.createElement('footer');
+        document.createElement('button');
+
+
+
+
+        
+        </script>
+            <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        
+        <link rel="stylesheet" type="text/css" href="mystyle.css"/>
+        
+            <title>view Main</title>
+            
+             <STYLE type="text/css">
+             
+             /*###Desktops, big landscape tablets and laptops(Large, Extra large)####*/
+@media screen and (min-width: 1024px){
+.openbtn {
+
+  
+  margin-left:-900px;
+  margin-top:-50px;
+}
+
+body{
+background-color:rgb(100, 149, 237);
+}
+}
+
+
+
+/*### Smartphones (portrait and landscape)(small)### */
+@media screen and (min-width : 0px) and (max-width : 767px){
+.openbtn {
+
+  
+  margin-left:0px;
+  margin-top:50px;
+}
+
+.btn-5{
+
+margin-right:-450px;
+margin-bottom:100px;
+
+
+
+}
+
+
+.nv{
+margin-left:20px;
+}
+
+.footer-distributed{
+height:500px;
+}
+
+      
+        
+        .buttons input {
+    margin: 5px;
+    padding: 5px 5px 5px 20px; /* 20px makes room for your background image */
+    border: 1px solid #aaa;
+    height:50px;
+      font-size: 30px;
+    
+}
+
+.buttons .apply {
+    background: #eee url(path/to/apply.png) no-repeat 0 50%;
+} 
+        
+        body{
+background-color:rgb(100, 149, 237);
+}
+ 
+        
+        </STYLE>
+
+        </head>
+        <body>
+		<nav class="nv">
+<ul class="dropdown">
+        	<li class="drop"><a href="./login.xhtml">Menu Page</a>
+        		
+        	</li>
+        	<li class="drop"><a href="./TransactionsHistory.xhtml">Rafraichir</a>
+        		
+        	</li>
+        	<li class="drop"><a href="./Dashboard.xhtml">Tableau de Bord</a>
+        		
+        	</li>
+        	<li><a href="mailto:larhchim.i.fst@uhp.ac.ma">Support Contact</a>
+        	</li>
+        </ul>
+</nav> 
+
+<div id="mySidebar" class="sidebar">
+  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
+  
+      
+			       <h:form>
+   
+   <div class="buttons">
+        <h:commandButton value="Déconnexion" action="#{loginController.logout}" styleClass="apply" />
+    </div>
+    
+    </h:form>
+    
+    
+  <a href="./Pops.xhtml">Catalogue POPS</a>
+  <a href="./TransactionsHistory.xhtml">Historique Des Transactions</a>
+  <a href="./Dashboard.xhtml">Tableau de Bord</a>
+  <a href="./DayTransactions.xhtml">Transactions du Jour</a>
+  <a href="./Reussies.xhtml">Transactions réussies</a>
+  <a href="./login.xhtml">Menu Page</a>
+  <a href="mailto:larhchim.i.fst@uhp.ac.ma">Contact Support</a>
+    <a href="javascript:void(0)" class="buttons" onclick="closeNav()"  type="button">Close</a>
+  
+</div>
+
+<div id="main">
+  <button class="openbtn" onclick="openNav()">☰ Open Sidebar</button>  
+  
+</div>
+
+<script>
+function openNav() {
+  document.getElementById("mySidebar").style.width = "250px";
+  document.getElementById("main").style.marginLeft = "250px";
+}
+
+function closeNav() {
+  document.getElementById("mySidebar").style.width = "0";
+  document.getElementById("main").style.marginLeft= "0";
+}
+</script> 
+		<section class="buttons">
+  <div class="container">
+    
+  <a href="./MotifHis.xhtml" class="btn btn-5"  id="t">Historique des Motifs </a> 
+  
+    
+ 
+     <a href="./RejTransHis.xhtml" class="btn btn-5"  id="f">Historique des rejets</a> 
+	 
+  </div>
+</section>
+
+<footer class="footer-distributed">
+ 
+		<div class="footer-left">
+ 
+		<h3>EURAFRIC<span>INFORMATION</span></h3>
+ 
+		<p class="footer-links">
+		<a href="https://www.linkedin.com/company/eurafric-information/">Home</a>
+	·
+	
+	
+		<a href="https://www.linkedin.com/company/eurafric-information/about/">About</a>
+	·
+	
+		<a href="https://www.linkedin.com/company/eurafric-information/life/e3327288-fe13-457c-96cf-12bd6a5ff653/">Work Life</a>
+		</p>
+ 
+		<p class="footer-company-name">EURAFRIC INFORMATION  2020</p>
+		</div>
+ 
+		<div class="footer-center">
+ 
+		<div>
+		<i class="fa fa-map-marker"></i>
+		<p><span>Campus BMCE Bank Batiment B2</span> Bouskoura Green City, Casablanca, 27182, MA</p>
+		</div>
+ 
+		<div>
+		<i class="fa fa-phone"></i>
+		<p>+212 520 225 100</p>
+		</div>
+ 
+		<div>
+		<i class="fa fa-envelope"></i>
+		<p><a href="mailto:larhchim.i.fst@uhp.ac.ma">contact@eurafric-information.com</a></p>
+		</div>
+ 
+		</div>
+ 
+		<div class="footer-right">
+ 
+		<p class="footer-company-about">
+		<span>About the company</span>
+	Eurafric Information – EAI est le fruit d’une joint-venture entre BMCE Bank of Africa, RMA et le Crédit Mutuel Alliance Fédérale.
+    EAI se positionne en tant que Centre de Services Informatique, proposant ainsi des services  à valeur ajoutée destinés aux filiales du Groupe.
+		</p>
+ 
+		
+ 
+		</div>
+ 
+		</footer>
+ 
+        </body>
+        
+    </f:view>
+</html>	

@@ -1,0 +1,139 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:f="http://java.sun.com/jsf/core"
+     xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    
+          <script type="text/javascript">
+        
+        document.createElement('nav');
+        document.createElement('div');
+        document.createElement('a');
+        document.createElement('footer');
+        document.createElement('button');
+
+
+
+
+        
+        </script>
+    
+        <STYLE type="text/css">
+        
+        .buttons input {
+    margin: 5px;
+    padding: 5px 5px 5px 20px; /* 20px makes room for your background image */
+    border: 1px solid #aaa;
+    height:50px;
+      font-size: 30px;
+    
+}
+
+.buttons .apply {
+    background: #eee url(path/to/apply.png) no-repeat 0 50%;
+} 
+        
+        
+        .button {
+  background-color: #4CAF50;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  width:210px;
+}
+        
+        .b1{
+          text-align: center;
+        
+        }
+        
+        .b2{
+          text-align: center;
+        
+        }
+        
+        h1{
+          text-align: center;
+        
+        }
+
+        </STYLE>
+        
+</h:head>
+
+	<h:body>
+	
+	
+   <form name="loginForm" method="Get" action="pdfexport">
+    <input class="button" type="submit" value="Télécharger Résumer" styleClass="apply"/>
+    
+    </form>
+    
+        <input onclick="location.href='./viewMainPage.xhtml';" class="button" type="button" value="Menu Page" styleClass="apply" />
+    
+	
+	
+	
+		<h:form id="form">
+
+
+    
+    	
+   
+
+
+
+
+		
+			<p></p>
+			<p></p>
+			<div>
+			
+			<h1>Graphe par type d'operation en pourcentage</h1>
+			<p:pieChart model="#{path.pieModel}" style="width: 100%; height: 500px;"/>
+			</div>
+			
+            <p></p>
+            <p></p>
+            
+            
+            <div>
+            <h1>Graphe par Libellé de rejet en pourcentage</h1>
+			<p:pieChart model="#{path.pieModel2}" style="width: 100%; height: 500px;"/>
+			</div>
+			
+			
+			
+			<div>
+			
+			<p:repeat value="#{rej.op}" var="cr">
+      
+	                    <h:outputText class="b1" value="#{cr.nn}" style="font-weight: bold" />:
+	                    
+	                    <br/>
+	                    <br/>
+	                    
+	 	                <h:outputText class="b2" value="#{cr.lib}" />
+	 	                
+	 	                <br/>
+	                    <br/>
+	 
+            
+            </p:repeat>
+			
+			</div>
+        
+            
+		</h:form>
+	</h:body>
+
+</html>
